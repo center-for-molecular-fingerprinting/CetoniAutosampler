@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="16">
+<FunctionSequence class_id="0" tracking_level="1" version="5" object_id="_0">
+	<IScriptFunction class_id="1" tracking_level="0" version="2">
+		<Comment class_id="2" tracking_level="0" version="0"></Comment>
+		<Caption>Script</Caption>
+	</IScriptFunction>
+	<ParallelSequence>0</ParallelSequence>
+	<LinkedFile></LinkedFile>
+	<InputParameters class_id="3" tracking_level="0" version="0">
+		<count>0</count>
+	</InputParameters>
+	<ReturnValues>
+		<count>0</count>
+	</ReturnValues>
+	<FunctionCount>14</FunctionCount>
+	<FunctionType>ClearEventLog</FunctionType>
+	<Function class_id="4" class_name="DataLogger::CClearEventLogScript" tracking_level="1" version="0" object_id="_1">
+		<IScriptFunction>
+			<Comment></Comment>
+			<Caption></Caption>
+		</IScriptFunction>
+	</Function>
+	<FunctionType>StartPlotLogger</FunctionType>
+	<Function class_id="5" class_name="DataLogger::CStartStopLoggingScript" tracking_level="1" version="1" object_id="_2">
+		<IScriptFunction>
+			<Comment></Comment>
+			<Caption></Caption>
+		</IScriptFunction>
+		<Mode>1</Mode>
+		<LoggerType>0</LoggerType>
+		<ClearPlot>0</ClearPlot>
+	</Function>
+	<FunctionType>Show Message</FunctionType>
+	<Function class_id="6" class_name="QtLabb::Script::CMessageFunction" tracking_level="1" version="1" object_id="_3">
+		<IScriptFunction>
+			<Comment></Comment>
+			<Caption></Caption>
+		</IScriptFunction>
+		<Message>VICI Valve positions:
+1 - Outlet
+2 - Inlet to Syringe pump S1 - handling sample only
+7 - Inlet to Flow cell/cuvette
+8 - Outlet to Syringe pump S2 - handling cleaning solution only</Message>
+		<Type>1</Type>
+		<Options>6</Options>
+	</Function>
+	<FunctionType>Show Message</FunctionType>
+	<Function class_id_reference="6" object_id="_4">
+		<IScriptFunction>
+			<Comment></Comment>
+			<Caption></Caption>
+		</IScriptFunction>
+		<Message>For first cleaning</Message>
+		<Type>1</Type>
+		<Options>6</Options>
+	</Function>
+	<FunctionType>Parallel Sequence</FunctionType>
+	<Function class_id="7" class_name="QtLabb::Script::CParallelSequence" tracking_level="1" version="5" object_id="_5">
+		<IScriptFunction>
+			<Comment></Comment>
+			<Caption></Caption>
+		</IScriptFunction>
+		<FunctionCount>3</FunctionCount>
+		<FunctionType>MoveToContainer</FunctionType>
+		<Function class_id="8" class_name="QtLabb::CMoveToContainerScript" tracking_level="1" version="1" object_id="_6">
+			<CPositioningDeviceScript class_id="9" tracking_level="0" version="1">
+				<IScriptFunction>
+					<Comment></Comment>
+					<Caption></Caption>
+				</IScriptFunction>
+				<Device>rotAXYS360_1</Device>
+				<RunToCompletion>1</RunToCompletion>
+			</CPositioningDeviceScript>
+			<Container>Fluid Tank 1</Container>
+			<Row class_id="10" tracking_level="0" version="0">
+				<Data>0</Data>
+			</Row>
+			<Column>
+				<Data>0</Data>
+			</Column>
+			<Axis1Velocity>
+				<Data>48.833333</Data>
+			</Axis1Velocity>
+			<Axis2Velocity>
+				<Data>175.799999</Data>
+			</Axis2Velocity>
+		</Function>
+		<FunctionType>Switch Valve</FunctionType>
+		<Function class_id="11" class_name="QmixV::CSwitchValveScript" tracking_level="1" version="1" object_id="_7">
+			<CQmixVScript class_id="12" tracking_level="0" version="2">
+				<IScriptFunction>
+					<Comment></Comment>
+					<Caption></Caption>
+				</IScriptFunction>
+				<Device>
+					<Data>$$ViciValve_1</Data>
+				</Device>
+				<Caption>VICI Valve 1</Caption>
+			</CQmixVScript>
+			<ValveTargetPosition>
+				<Data>0</Data>
+			</ValveTargetPosition>
+		</Function>
+		<FunctionType>Switch Valve</FunctionType>
+		<Function class_id_reference="11" object_id="_8">
+			<CQmixVScript>
+				<IScriptFunction>
+					<Comment></Comment>
+					<Caption></Caption>
+				</IScriptFunction>
+				<Device>
+					<Data>$$Valve_0</Data>
+				</Device>
+				<Caption>Valve_0</Caption>
+			</CQmixVScript>
+			<ValveTargetPosition>
+				<Data>0</Data>
+			</ValveTargetPosition>
+		</Function>
+	</Function>
+	<FunctionType>Dose Volume</FunctionType>
+	<Function class_id="13" class_name="Nemesys::CDosingScript" tracking_level="1" version="0" object_id="_9">
+		<CNemesysScript class_id="14" tracking_level="0" version="1">
+			<IScriptFunction>
+				<Comment></Comment>
+				<Caption></Caption>
+			</IScriptFunction>
+			<Device>
+				<Data>$$Nemesys_S_1</Data>
+			</Device>
+		</CNemesysScript>
+		<Volume>-100</Volume>
+		<Flow>100</Flow>
+		<DosingMode>0</DosingMode>
+		<VolumeUnit>MICRO l</VolumeUnit>
+		<FlowUnit>MICRO l s</FlowUnit>
+		<RunToCompletion>1</RunToCompletion>
+	</Function>
+	<FunctionType>Delay</FunctionType>
+	<Function class_id="15" class_name="QtLabb::Script::CDelayFunction" tracking_level="1" version="1" object_id="_10">
+		<IScriptFunction>
+			<Comment></Comment>
+			<Caption></Caption>
+		</IScriptFunction>
+		<Interval>500 0 0 0</Interval>
+	</Function>
+	<FunctionType>Parallel Sequence</FunctionType>
+	<Function class_id_reference="7" object_id="_11">
+		<IScriptFunction>
+			<Comment></Comment>
+			<Caption></Caption>
+		</IScriptFunction>
+		<FunctionCount>2</FunctionCount>
+		<FunctionType>Switch Valve</FunctionType>
+		<Function class_id_reference="11" object_id="_12">
+			<CQmixVScript>
+				<IScriptFunction>
+					<Comment></Comment>
+					<Caption></Caption>
+				</IScriptFunction>
+				<Device>
+					<Data>$$ViciValve_1</Data>
+				</Device>
+				<Caption>VICI Valve 1</Caption>
+			</CQmixVScript>
+			<ValveTargetPosition>
+				<Data>3</Data>
+			</ValveTargetPosition>
+		</Function>
+		<FunctionType>Switch Valve</FunctionType>
+		<Function class_id_reference="11" object_id="_13">
+			<CQmixVScript>
+				<IScriptFunction>
+					<Comment></Comment>
+					<Caption></Caption>
+				</IScriptFunction>
+				<Device>
+					<Data>$$Valve_0</Data>
+				</Device>
+				<Caption>Valve_0</Caption>
+			</CQmixVScript>
+			<ValveTargetPosition>
+				<Data>1</Data>
+			</ValveTargetPosition>
+		</Function>
+	</Function>
+	<FunctionType>Dose Volume</FunctionType>
+	<Function class_id_reference="13" object_id="_14">
+		<CNemesysScript>
+			<IScriptFunction>
+				<Comment></Comment>
+				<Caption></Caption>
+			</IScriptFunction>
+			<Device>
+				<Data>$$Nemesys_S_1</Data>
+			</Device>
+		</CNemesysScript>
+		<Volume>100</Volume>
+		<Flow>10</Flow>
+		<DosingMode>0</DosingMode>
+		<VolumeUnit>MICRO l</VolumeUnit>
+		<FlowUnit>MICRO l s</FlowUnit>
+		<RunToCompletion>1</RunToCompletion>
+	</Function>
+	<FunctionType>Show Message</FunctionType>
+	<Function class_id_reference="6" object_id="_15">
+		<IScriptFunction>
+			<Comment></Comment>
+			<Caption></Caption>
+		</IScriptFunction>
+		<Message>Sample flow</Message>
+		<Type>1</Type>
+		<Options>6</Options>
+	</Function>
+	<FunctionType>Parallel Sequence</FunctionType>
+	<Function class_id_reference="7" object_id="_16">
+		<IScriptFunction>
+			<Comment></Comment>
+			<Caption></Caption>
+		</IScriptFunction>
+		<FunctionCount>3</FunctionCount>
+		<FunctionType>MoveToContainer</FunctionType>
+		<Function class_id_reference="8" object_id="_17">
+			<CPositioningDeviceScript>
+				<IScriptFunction>
+					<Comment></Comment>
+					<Caption></Caption>
+				</IScriptFunction>
+				<Device>rotAXYS360_1</Device>
+				<RunToCompletion>1</RunToCompletion>
+			</CPositioningDeviceScript>
+			<Container>Wellplate 1</Container>
+			<Row>
+				<Data>1</Data>
+			</Row>
+			<Column>
+				<Data>1</Data>
+			</Column>
+			<Axis1Velocity>
+				<Data>48.833333</Data>
+			</Axis1Velocity>
+			<Axis2Velocity>
+				<Data>175.799999</Data>
+			</Axis2Velocity>
+		</Function>
+		<FunctionType>Switch Valve</FunctionType>
+		<Function class_id_reference="11" object_id="_18">
+			<CQmixVScript>
+				<IScriptFunction>
+					<Comment></Comment>
+					<Caption></Caption>
+				</IScriptFunction>
+				<Device>
+					<Data>$$ViciValve_1</Data>
+				</Device>
+				<Caption>VICI Valve 1</Caption>
+			</CQmixVScript>
+			<ValveTargetPosition>
+				<Data>0</Data>
+			</ValveTargetPosition>
+		</Function>
+		<FunctionType>Switch Valve</FunctionType>
+		<Function class_id_reference="11" object_id="_19">
+			<CQmixVScript>
+				<IScriptFunction>
+					<Comment></Comment>
+					<Caption></Caption>
+				</IScriptFunction>
+				<Device>
+					<Data>$$Valve_0</Data>
+				</Device>
+				<Caption>Valve_0</Caption>
+			</CQmixVScript>
+			<ValveTargetPosition>
+				<Data>0</Data>
+			</ValveTargetPosition>
+		</Function>
+	</Function>
+	<FunctionType>Dose Volume</FunctionType>
+	<Function class_id_reference="13" object_id="_20">
+		<CNemesysScript>
+			<IScriptFunction>
+				<Comment></Comment>
+				<Caption></Caption>
+			</IScriptFunction>
+			<Device>
+				<Data>$$Nemesys_S_2</Data>
+			</Device>
+		</CNemesysScript>
+		<Volume>-60</Volume>
+		<Flow>10</Flow>
+		<DosingMode>0</DosingMode>
+		<VolumeUnit>MICRO l</VolumeUnit>
+		<FlowUnit>MICRO l s</FlowUnit>
+		<RunToCompletion>1</RunToCompletion>
+	</Function>
+	<FunctionType>Parallel Sequence</FunctionType>
+	<Function class_id_reference="7" object_id="_21">
+		<IScriptFunction>
+			<Comment></Comment>
+			<Caption></Caption>
+		</IScriptFunction>
+		<FunctionCount>2</FunctionCount>
+		<FunctionType>Switch Valve</FunctionType>
+		<Function class_id_reference="11" object_id="_22">
+			<CQmixVScript>
+				<IScriptFunction>
+					<Comment></Comment>
+					<Caption></Caption>
+				</IScriptFunction>
+				<Device>
+					<Data>$$ViciValve_1</Data>
+				</Device>
+				<Caption>VICI Valve 1</Caption>
+			</CQmixVScript>
+			<ValveTargetPosition>
+				<Data>3</Data>
+			</ValveTargetPosition>
+		</Function>
+		<FunctionType>Switch Valve</FunctionType>
+		<Function class_id_reference="11" object_id="_23">
+			<CQmixVScript>
+				<IScriptFunction>
+					<Comment></Comment>
+					<Caption></Caption>
+				</IScriptFunction>
+				<Device>
+					<Data>$$Valve_0</Data>
+				</Device>
+				<Caption>Valve_0</Caption>
+			</CQmixVScript>
+			<ValveTargetPosition>
+				<Data>1</Data>
+			</ValveTargetPosition>
+		</Function>
+	</Function>
+	<FunctionType>Dose Volume</FunctionType>
+	<Function class_id_reference="13" object_id="_24">
+		<CNemesysScript>
+			<IScriptFunction>
+				<Comment></Comment>
+				<Caption></Caption>
+			</IScriptFunction>
+			<Device>
+				<Data>$$Nemesys_S_2</Data>
+			</Device>
+		</CNemesysScript>
+		<Volume>60</Volume>
+		<Flow>10</Flow>
+		<DosingMode>0</DosingMode>
+		<VolumeUnit>MICRO l</VolumeUnit>
+		<FlowUnit>MICRO l s</FlowUnit>
+		<RunToCompletion>1</RunToCompletion>
+	</Function>
+</FunctionSequence>
+</boost_serialization>
+
